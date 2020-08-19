@@ -1,0 +1,8 @@
+<chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:chipBackgroundColor="@color/splash_background"
+    android:checkable="true"
+    android:text="ChipDrawable"
+    app:closeIconVisible="false"
+    app:checkedIconTint="@android:color/black"
+    />

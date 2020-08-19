@@ -1,0 +1,8 @@
+<chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:chipIcon="@drawable/location_city"
+    app:chipBackgroundColor="@color/splash_background"
+    app:closeIconTint="@android:color/black"
+    android:checkable="false"
+    android:text="ChipDrawable" />

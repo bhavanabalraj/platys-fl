@@ -1,0 +1,10 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    android:padding="10dp">
+    <solid android:color="@color/tag_box_color_2"/>
+    <corners
+        android:topRightRadius="20dp"
+        android:bottomRightRadius="20dp"
+        />
+</shape>

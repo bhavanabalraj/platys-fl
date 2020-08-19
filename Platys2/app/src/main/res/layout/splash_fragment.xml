@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewmodel"
+            type="com.example.platys.splash.SplashViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/splash_screen_img_size"
+            android:layout_height="@dimen/splash_screen_img_size"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_platys"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            style="@style/Widget.MaterialComponents.ProgressIndicator.Linear.Indeterminate"
+            app:indicatorColor="@android:color/white"
+            app:trackColor="@color/splash_loader_track_color"
+            app:indicatorWidth="@dimen/splash_loader_height"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="@dimen/standard_margin"
+            android:visibility="@{viewmodel.dataLoaded? View.GONE: View.VISIBLE}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

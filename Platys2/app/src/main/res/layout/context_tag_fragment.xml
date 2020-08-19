@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/context_tag_fragment_scene"
+    android:background="@color/colorPrimary">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btTag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--    <View-->
+            <!--        android:id="@+id/firstTile"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="@dimen/tag_fragment_box_height"-->
+            <!--        android:background="@drawable/right_curved_rectangle"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        android:layout_marginEnd="@dimen/large_margin"-->
+            <!--        app:layout_constraintBottom_toTopOf="@id/secondTile"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        android:layout_marginTop="@dimen/text_field_height"-->
+            <!--        android:layout_marginBottom="@dimen/standard_margin"/>-->
+
+            <!--    <View-->
+            <!--        android:id="@+id/secondTile"-->
+            <!--        android:elevation="8dp"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="@dimen/tag_fragment_box_height"-->
+            <!--        android:background="@drawable/left_curved_rectangle"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        android:layout_marginStart="@dimen/large_margin"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintBottom_toTopOf="@id/thirdTile"-->
+            <!--        android:layout_marginTop="@dimen/standard_margin"-->
+            <!--        android:layout_marginBottom="@dimen/standard_margin" />-->
+
+            <!--    <View-->
+            <!--        android:id="@+id/thirdTile"-->
+            <!--        android:elevation="2dp"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="@dimen/tag_fragment_box_height"-->
+            <!--        android:background="@drawable/top_curved_rectangle"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        android:layout_marginEnd="@dimen/large_margin"-->
+            <!--        app:layout_constraintBottom_toTopOf="@id/fourthTile"-->
+            <!--        android:layout_marginBottom="@dimen/standard_margin" />-->
+
+            <!--    <View-->
+            <!--        android:id="@+id/fourthTile"-->
+            <!--        android:elevation="2dp"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="@dimen/tag_fragment_box_height"-->
+            <!--        android:background="@drawable/bottom_curved_rectangle"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        app:layout_constraintBottom_toTopOf="@id/btTag"-->
+            <!--        android:layout_marginBottom="@dimen/standard_margin"-->
+            <!--        android:layout_marginStart="@dimen/large_margin" />-->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/activityCard"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tag_box_color_3"
+                app:cardElevation="@dimen/card_elevation"
+                app:layout_constraintEnd_toStartOf="@id/placeCard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/handleClick"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:alpha="0.8"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/cycling_svg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvActivityCaption"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginTop="@dimen/card_elevation"
+                        android:text="@string/activity_tag"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvActivityMessage"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:text="@string/activity_card_message"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvActivityCaption" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/placeCard"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tag_box_color_4"
+                app:cardElevation="@dimen/card_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/activityCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/small_img_size"
+                        android:layout_height="@dimen/small_img_size"
+                        android:alpha="0.7"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/location_city"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPlaceCaption"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginTop="@dimen/card_elevation"
+                        android:text="@string/place_tag"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPlaceMessage"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:text="@string/place_card_message"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPlaceCaption" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:soundEffectsEnabled="false"
+                android:id="@+id/firstBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="activityCard,placeCard" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/peopleCard"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/card_height"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tag_box_color_1"
+                app:cardElevation="@dimen/card_elevation"
+                app:layout_constraintEnd_toStartOf="@id/emojiCard"
+                app:layout_constraintStart_toStartOf="@id/activityCard"
+                app:layout_constraintTop_toBottomOf="@id/firstBarrier">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/splash_screen_img_size"
+                        android:layout_height="@dimen/text_field_height"
+                        android:alpha="0.7"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/people_svg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPeopleCaption"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginTop="@dimen/card_elevation"
+                        android:text="@string/people_tag"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPeopleMessage"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:text="@string/people_card_message"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPeopleCaption" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/emojiCard"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tag_box_color_2"
+                app:cardElevation="@dimen/card_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/peopleCard"
+                app:layout_constraintTop_toBottomOf="@id/firstBarrier">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/text_field_height"
+                        android:layout_height="@dimen/text_field_height"
+                        android:layout_marginEnd="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/emoji_svg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvEmojiCaption"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginTop="@dimen/card_elevation"
+                        android:text="@string/emoji_tag"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvEmojiMessage"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:text="@string/emotion_card_message"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvEmojiCaption" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/secondBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="peopleCard,emojiCard" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/timeCard"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/text_field_height"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/tag_box_color_5"
+                app:cardElevation="@dimen/card_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/secondBarrier">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="@dimen/large_margin"
+                        android:layout_height="@dimen/large_margin"
+                        android:layout_marginEnd="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:alpha="0.7"
+                        android:contentDescription="@string/image_description"
+                        android:src="@drawable/time_svg"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTimeCaption"
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginTop="@dimen/card_elevation"
+                        android:text="@string/time_tag"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTimeMessage"
+                        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_elevation"
+                        android:layout_marginBottom="@dimen/card_elevation"
+                        android:text="@string/time_card_message"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTimeCaption" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/btTag"
+        style="@style/Widget.App.ButtonText"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/text_field_height"
+        android:layout_marginTop="@dimen/large_margin"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:text="@string/tag"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.google.android.material.progressindicator.ProgressIndicator
+        android:id="@+id/tagIndicator"
+        style="@style/Widget.App.ProgressIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

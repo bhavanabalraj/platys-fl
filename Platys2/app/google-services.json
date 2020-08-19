@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "642627985751",
+    "firebase_url": "https://platys.firebaseio.com",
+    "project_id": "platys",
+    "storage_bucket": "platys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642627985751:android:dcc70b068721298bf2de12",
+        "android_client_info": {
+          "package_name": "com.example.platys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "642627985751-kao5rr8bc3jh8ln74mmi48hgk90ojoev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.platys",
+            "certificate_hash": "b28bdb844a8af5bbbdc01402d4e9a18e4056c7ff"
+          }
+        },
+        {
+          "client_id": "642627985751-eeeqav8nu58ug5mlh5vo65kvg1jmokl7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhSHa2W5uIhXqLwJfVL2uxiGO5COiqlpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "642627985751-eeeqav8nu58ug5mlh5vo65kvg1jmokl7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

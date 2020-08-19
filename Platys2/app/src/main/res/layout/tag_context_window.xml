@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.platys.tagcontext.ContextTagViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlTag"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/text_field_height"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/text_field_height"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            app:endIconMode="custom"
+            app:endIconTint="@color/splash_background"
+            app:endIconDrawable="@drawable/ic_done"
+            app:endIconContentDescription="@string/image_description"
+            app:errorEnabled="true" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ScrollView
+            android:id="@+id/slInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlTag"
+            app:layout_constraintBottom_toTopOf="@id/tvSuggestionLabel"
+            android:layout_margin="@dimen/standard_margin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            >
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tlTag"
+                android:layout_marginStart="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/standard_margin"
+                android:layout_marginTop="@dimen/standard_margin" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/tvSuggestionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginStart="@dimen/standard_margin"
+            app:layout_constraintBottom_toTopOf="@id/hsSuggestion"
+            android:layout_marginBottom="@dimen/standard_margin"
+            android:text="@string/suggestions"
+            android:visibility="invisible"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-condensed-light"
+            style="@style/TextAppearance.MaterialComponents.Headline5" />
+
+        <HorizontalScrollView
+            android:id="@+id/hsSuggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tagButton"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin">
+
+            <com.google.android.material.chip.ChipGroup
+                android:visibility="invisible"
+                android:id="@+id/cgSuggestion"
+                app:singleLine="true"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+        </HorizontalScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tagButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tag_fragment_circle_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            app:layout_constraintBottom_toTopOf="@id/cancelButton"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:text="@string/done"
+            android:textColor="@android:color/black"
+            android:backgroundTint="@color/colorAccent"
+            android:gravity="center"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelButton"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/tag_fragment_circle_radius"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/standard_margin"
+            app:strokeColor="@color/colorAccent"
+            app:strokeWidth="@dimen/splash_loader_height"
+            android:text="@string/cancel"
+            android:textColor="@color/colorAccent"
+            android:onClick="@{() -> viewmodel.tagWindowClosed()}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

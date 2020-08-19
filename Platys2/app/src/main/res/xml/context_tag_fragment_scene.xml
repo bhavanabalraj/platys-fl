@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@id/activityCard"
+               android:alpha="0.5"
+               motion:framePosition="50"/>
+           <KeyAttribute
+               motion:motionTarget="@id/activityCard"
+               android:alpha="0.75"
+               motion:framePosition="75"/>
+           <KeyAttribute
+               motion:motionTarget="@id/activityCard"
+               android:alpha="0.25"
+               motion:framePosition="25"/>
+
+           <KeyAttribute
+               motion:motionTarget="@id/placeCard"
+               android:alpha="0.5"
+               motion:framePosition="50"/>
+           <KeyAttribute
+               motion:motionTarget="@id/placeCard"
+               android:alpha="0.75"
+               motion:framePosition="75"/>
+           <KeyAttribute
+               motion:motionTarget="@id/placeCard"
+               android:alpha="0.25"
+               motion:framePosition="25"/>
+
+           <KeyAttribute
+               motion:motionTarget="@id/timeCard"
+               android:alpha="0.5"
+               motion:framePosition="50"/>
+           <KeyAttribute
+               motion:motionTarget="@id/timeCard"
+               android:alpha="0.75"
+               motion:framePosition="75"/>
+           <KeyAttribute
+               motion:motionTarget="@id/timeCard"
+               android:alpha="0.25"
+               motion:framePosition="25"/>
+
+           <KeyAttribute
+               motion:motionTarget="@id/emojiCard"
+               android:alpha="0.5"
+               motion:framePosition="50"/>
+           <KeyAttribute
+               motion:motionTarget="@id/emojiCard"
+               android:alpha="0.75"
+               motion:framePosition="75"/>
+           <KeyAttribute
+               motion:motionTarget="@id/emojiCard"
+               android:alpha="0.25"
+               motion:framePosition="25"/>
+
+           <KeyAttribute
+               motion:motionTarget="@id/peopleCard"
+               android:alpha="0.5"
+               motion:framePosition="50"/>
+           <KeyAttribute
+               motion:motionTarget="@id/peopleCard"
+               android:alpha="0.75"
+               motion:framePosition="75"/>
+           <KeyAttribute
+               motion:motionTarget="@id/peopleCard"
+               android:alpha="0.25"
+               motion:framePosition="25"/>
+
+       </KeyFrameSet>
+        <OnClick motion:targetId="@+id/firstBarrier"
+            motion:clickAction="transitionToEnd"/>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/activityCard"
+            android:alpha="0"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_3"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toStartOf="@id/placeCard"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:alpha="0"
+            android:id="@id/placeCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_4"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/activityCard"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:alpha="0"
+            android:id="@id/peopleCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_1"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toStartOf="@id/emojiCard"
+            motion:layout_constraintStart_toStartOf="@id/activityCard"
+            motion:layout_constraintTop_toBottomOf="@id/firstBarrier" />
+        <Constraint
+            android:alpha="0"
+            android:id="@id/emojiCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_2"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/peopleCard"
+            motion:layout_constraintTop_toBottomOf="@id/firstBarrier" />
+        <Constraint
+            android:alpha="0"
+            android:id="@id/timeCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/text_field_height"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_5"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/secondBarrier" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/activityCard"
+            android:alpha="1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_3"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toStartOf="@id/placeCard"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:alpha="1"
+            android:id="@id/placeCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_4"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/activityCard"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:alpha="1"
+            android:id="@id/peopleCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_1"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toStartOf="@id/emojiCard"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/firstBarrier" />
+        <Constraint
+            android:alpha="1"
+            android:id="@id/emojiCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/card_height"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_2"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/peopleCard"
+            motion:layout_constraintTop_toBottomOf="@id/firstBarrier" />
+        <Constraint
+            android:alpha="1"
+            android:id="@+id/timeCard"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/text_field_height"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginEnd="@dimen/standard_margin"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            motion:cardBackgroundColor="@color/tag_box_color_5"
+            motion:cardElevation="@dimen/card_elevation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/secondBarrier" />
+    </ConstraintSet>
+</MotionScene>

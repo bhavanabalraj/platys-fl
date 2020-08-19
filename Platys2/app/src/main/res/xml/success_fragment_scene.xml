@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:framePosition="0"
+               android:scaleX="0"
+               android:scaleY="0"
+               motion:motionTarget="@id/successCircle"/>
+           <KeyAttribute
+               motion:framePosition="20"
+               android:scaleX="0.5"
+               android:scaleY="0.5"
+               motion:motionTarget="@id/successCircle"/>
+           <KeyAttribute
+               motion:framePosition="40"
+               android:scaleY="1"
+               android:scaleX="1"
+               motion:motionTarget="@id/successCircle"/>
+           <KeyAttribute
+               motion:framePosition="60"
+               android:scaleX="1.5"
+               android:scaleY="1.5"
+               motion:motionTarget="@id/successCircle"/>
+           <KeyAttribute
+               motion:framePosition="80"
+               android:scaleY="1"
+               android:scaleX="1"
+               motion:motionTarget="@id/successCircle"/>
+           <KeyAttribute
+               motion:framePosition="75"
+               android:alpha="0.5"
+               motion:motionTarget="@id/successTick"/>
+           <KeyAttribute
+               motion:framePosition="80"
+               android:alpha="1"
+               motion:motionTarget="@id/successTick"/>
+           <KeyAttribute
+               motion:framePosition="75"
+               android:alpha="0.5"
+               motion:motionTarget="@id/successMessage"/>
+           <KeyAttribute
+               motion:framePosition="80"
+               android:alpha="1"
+               motion:motionTarget="@id/successMessage"/>
+       </KeyFrameSet>
+        <OnClick motion:targetId="@+id/successCircle" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/successTick"
+            android:alpha="0"
+            android:layout_width="@dimen/large_margin"
+            android:layout_height="@dimen/large_margin"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint
+            android:id="@id/successCircle"
+            android:alpha="1"
+            android:layout_width="@dimen/small_img_size"
+            android:layout_height="@dimen/small_img_size"
+            android:background="@drawable/circle_shape"
+            android:contentDescription="@string/image_description"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@id/successMessage"
+            android:alpha="0"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/successCircle"
+            android:layout_marginTop="@dimen/standard_margin" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/successTick"
+            android:alpha="1"
+            android:layout_width="@dimen/large_margin"
+            android:layout_height="@dimen/large_margin"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            />
+        <Constraint
+            android:id="@id/successCircle"
+            android:alpha="1"
+            android:layout_width="@dimen/small_img_size"
+            android:layout_height="@dimen/small_img_size"
+            android:background="@drawable/circle_shape"
+            android:contentDescription="@string/image_description"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"/>
+        <Constraint
+            android:id="@id/successMessage"
+            android:alpha="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/successCircle"
+            android:layout_marginTop="@dimen/standard_margin" />
+    </ConstraintSet>
+</MotionScene>

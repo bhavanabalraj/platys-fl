@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.platys.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout android:id="@+id/login_motion_scene"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/login_fragment_scene">
+
+        <ImageView
+            android:id="@+id/loginImageView"
+            android:layout_width="@dimen/splash_screen_img_size"
+            android:layout_height="@dimen/splash_screen_img_size"
+            android:contentDescription="@string/image_description"
+            android:src="@drawable/ic_platys"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:soundEffectsEnabled="false" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="@string/email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlEmail"
+            android:hint="@string/password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/btLogin"
+            android:layout_width="@dimen/login_button_width"
+            android:layout_height="@dimen/text_field_height"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:background="@drawable/oval_button_shape"
+            android:text="@string/login"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            style="@style/Widget.App.ButtonText"
+            android:onClick="@{() -> viewmodel.loginButtonClicked()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tlPassword" />
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            android:id="@+id/loginIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tlPassword"
+            android:layout_marginTop="@dimen/standard_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            style="@style/Widget.App.ProgressIndicator" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvRegisterLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btLogin"
+            android:onClick="@{() -> viewmodel.registerButtonClicked()}"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:text="@string/register_instruction" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.example.platys.tagcontext.ContextTagViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/app_name"
+            android:textStyle="bold"
+            android:textSize="@dimen/heading_title_size"
+            style="@style/Widget.App.ButtonText"
+            android:textColor="@color/colorAccent"
+            android:padding="@dimen/standard_margin" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_marginTop="@dimen/viewpager_next_item_visible"
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appName" />
+
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="@dimen/tag_fragment_circle_radius"
+            android:layout_height="@dimen/tag_fragment_circle_radius"
+            tools:background="@drawable/tag_fragment_circle_1"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            android:layout_marginTop="@dimen/large_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            android:contentDescription="@string/image_description"
+            android:onClick="@{() -> viewmodel.tagIconClicked()}"
+            app:layout_constraintEnd_toStartOf="@id/settingsButton" />
+
+        <TextView
+            android:id="@+id/editButtonLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text_size"
+            android:layout_marginTop="@dimen/card_elevation"
+            app:layout_constraintTop_toBottomOf="@id/editButton"
+            app:layout_constraintEnd_toStartOf="@id/settingsButtonLabel"
+            android:text="@string/tag" />
+
+        <TextView
+            android:id="@+id/settingsButtonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_text_size"
+            android:layout_marginTop="@dimen/card_elevation"
+            app:layout_constraintTop_toBottomOf="@id/settingsButton"
+            app:layout_constraintEnd_toStartOf="@id/appButtonLabel"
+            app:layout_constraintStart_toEndOf="@id/editButtonLabel"
+            android:text="@string/privacy_label" />
+
+        <TextView
+            android:id="@+id/appButtonLabel"
+            android:textSize="@dimen/small_text_size"
+            app:layout_constraintStart_toEndOf="@id/settingsButtonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_elevation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appButton"
+            android:text="@string/app_label" />
+
+        <ImageButton
+            android:id="@+id/settingsButton"
+            android:layout_width="@dimen/tag_fragment_circle_radius"
+            android:layout_height="@dimen/tag_fragment_circle_radius"
+            tools:background="@drawable/tag_fragment_circle_1"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            android:layout_marginTop="@dimen/large_margin"
+            app:layout_constraintStart_toEndOf="@id/editButton"
+            app:layout_constraintEnd_toStartOf="@id/appButton"
+            android:contentDescription="@string/image_description" />
+
+        <ImageButton
+            android:id="@+id/appButton"
+            android:layout_width="@dimen/tag_fragment_circle_radius"
+            android:layout_height="@dimen/tag_fragment_circle_radius"
+            tools:background="@drawable/tag_fragment_circle_1"
+            android:src="@drawable/ic_apps"
+            app:layout_constraintTop_toBottomOf="@id/viewPager"
+            android:layout_marginTop="@dimen/large_margin"
+            app:layout_constraintStart_toEndOf="@id/settingsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/image_description" />
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tvTagsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/hsInputTags"
+            android:layout_marginStart="@dimen/large_margin"
+            android:text="@string/tags"
+            android:layout_marginBottom="@dimen/card_elevation"
+            style="@style/Widget.App.ButtonText"/>
+<!--            android:visibility="@{viewmodel.showHideInputTags? View.VISIBLE: View.INVISIBLE}"-->
+
+        <HorizontalScrollView
+            android:id="@+id/hsInputTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appButtonLabel"
+            app:layout_constraintBottom_toTopOf="@id/btDone"
+            android:layout_marginStart="@dimen/large_margin"
+            android:layout_marginEnd="@dimen/large_margin">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgInputTags"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:singleLine="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </HorizontalScrollView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/btDone"
+            style="@style/Widget.App.ButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/text_field_height"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@android:color/black"
+            android:background="@color/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:onClick="@{() -> viewmodel.submitButtonClicked()}"/>
+
+        <com.google.android.material.progressindicator.ProgressIndicator
+            android:id="@+id/tagIndicator"
+            style="@style/Widget.App.ProgressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

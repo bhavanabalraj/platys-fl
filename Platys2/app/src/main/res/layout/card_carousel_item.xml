@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    app:cardElevation="@dimen/card_elevation"
+    app:cardCornerRadius="6dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_height">
+
+        <ImageView
+            android:id="@+id/ivBackground"
+            android:contentDescription="@string/image_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:src="@drawable/card_background_4" />
+
+        <ImageView
+            android:contentDescription="@string/image_description"
+            android:id="@+id/ivCardIcon"
+            android:layout_width="@dimen/login_screen_img_size"
+            android:layout_height="@dimen/login_screen_img_size"
+            android:layout_margin="@dimen/standard_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@drawable/ic_emoji_icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvCaption"
+            android:textSize="@dimen/heading_title_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_marginTop="@dimen/standard_margin"
+            tools:text="@string/time_tag"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvMessage"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/standard_margin"
+            tools:text="@string/time_card_message"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCaption" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

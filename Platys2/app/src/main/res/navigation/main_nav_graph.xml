@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/contextTagFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.platys.splash.SplashFragment"
+        android:label="Splash Screen">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.platys.login.LoginFragment"
+        android:label="Login Screen">
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_contextTagFragment"
+            app:destination="@id/contextTagFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.platys.register.RegisterFragment"
+        android:label="Register Screen" >
+        <action
+            android:id="@+id/action_registerFragment_to_successFragment"
+            app:destination="@id/successFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.example.platys.success.SuccessFragment"
+        android:label="Success Screen"/>
+
+    <fragment
+        android:id="@+id/contextTagFragment"
+        android:name="com.example.platys.tagcontext.ContextTagFragment"
+        android:label="Context Tag Screen">
+        <action
+            android:id="@+id/action_contextTagFragment_to_contextTagWindow"
+            app:destination="@+id/contextTagWindow" />
+    </fragment>
+    <fragment
+        android:id="@+id/contextTagWindow"
+        android:name="com.example.platys.tagcontext.TagContextWindowFragment"
+        android:label="Context Tag Screen">
+        <argument
+            android:name="cardId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+</navigation>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#363640</color>
+    <color name="colorPrimaryDark">#10101a</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="splash_background">#ffff00</color>
+    <color name="splash_background_dark">#c7cc00</color>
+    <color name="splash_loader_track_color">#9DA19E</color>
+    <color name="error_color">#E30425</color>
+    <color name="tag_box_color_1">#1EB980</color>
+    <color name="tag_box_color_2">#045D56</color>
+    <color name="tag_box_color_3">#FF6859</color>
+    <color name="tag_box_color_4">#FFCF44</color>
+    <color name="tag_box_color_5">#72DEFF</color>
+    <color name="card_icon_color">#000000</color>
+    <color name="card_icon_color_light">#707070</color>
+</resources>

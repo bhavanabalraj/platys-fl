@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Platys</string>
+    <string name="image_description">Image Description</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="register_instruction">Don\'t have an account?</string>
+    <string name="email_empty_error">Please enter email ID</string>
+    <string name="account_created">Account created! Please verify your email to login.</string>
+    <string name="tag">Tag</string>
+    <string name="done">Done</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="activity_card_message">What are you doing?</string>
+    <string name="place_card_message">Where are you now?</string>
+    <string name="people_card_message">Whose with you?</string>
+    <string name="time_card_message">Want to change time?</string>
+    <string name="emotion_card_message">How are you feeling?</string>
+    <string name="activity_tag">Activity</string>
+    <string name="place_tag">Place</string>
+    <string name="people_tag">People</string>
+    <string name="emoji_tag">Emotion</string>
+    <string name="time_tag">Time</string>
+    <string name="edit_label">Edit</string>
+    <string name="privacy_label">Privacy Settings</string>
+    <string name="app_label">Apps</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="tags">Tags Added</string>
+</resources>
