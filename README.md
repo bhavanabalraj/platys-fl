@@ -1,0 +1,1 @@
+A solution for user context recognition problem including social contexts applying privacy preserving Federated Learning and Active Machine Learning to identify precise, fine-grained contexts all while protecting sensitive user data.
