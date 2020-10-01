@@ -39,6 +39,7 @@ for i in range(len(xHarData[0])):
 
 
 X_train = torch.tensor(newTrainData)
+
 y_train = torch.tensor(yHarData[0].values).flatten()
 
 X_testData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt', header=None)
@@ -85,7 +86,6 @@ def train(net, X_train, y_train):
 
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.003)
-    
     epochs = 50
     train_losses, test_losses = [], []
     batch_size = 32
@@ -106,7 +106,6 @@ def train(net, X_train, y_train):
             
             indices = permutation[i:i+batch_size]
             batch_x, batch_y = X_train[indices], y_train[indices]
-            
             log_ps = net(batch_x)
             loss = criterion(log_ps, batch_y)
             loss.backward()
@@ -125,7 +124,6 @@ def train(net, X_train, y_train):
             
                 # Turn off gradients for validation, saves memory and computations
                 with torch.no_grad():
-                    
                     net.eval()
                     indices = permutation[i:i+batch_size]
                     batch_x, batch_y = X_test[indices], y_test[indices]
@@ -136,9 +134,8 @@ def train(net, X_train, y_train):
                     top_p, top_class = ps.topk(1, dim=1)
                     equals = top_class == batch_y.view(*top_class.shape)
                     accuracy += torch.mean(equals.type(torch.FloatTensor))
-                          
-            net.train()
-            
+
+            net.train()           
             train_losses.append(running_loss/trainloader)
             test_losses.append(test_loss/testloader)
         
@@ -146,11 +143,10 @@ def train(net, X_train, y_train):
                   "Training Loss: {:.3f}.. ".format(running_loss/trainloader),
                   "Test Loss: {:.3f}.. ".format(test_loss/testloader),
                   "Test Accuracy: {:.3f}".format(accuracy/testloader))
-        
     
         plt.plot(train_losses)
         plt.plot(test_losses)
-    
+
     return net.state_dict()
 
 #train(model)
@@ -192,8 +188,4 @@ for idx in idxs_users:
    w = train(net, X_split_dataset[idx], y_split_dataset[idx])
    plt.show()
    w_locals.append(copy.deepcopy(w))
-
-
-
-
 
