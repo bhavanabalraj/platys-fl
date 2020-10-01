@@ -9,8 +9,6 @@ import seaborn as sns
 import torch.nn.functional as F
 from torch import optim
 
-
-
 xHarData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt', header=None)
 yHarData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt', header=None)
 
@@ -61,10 +59,6 @@ for i in range(len(X_testData[0])):
 X_test = torch.tensor(newTestData)
 y_test = torch.tensor(y_testData[0].values).flatten()
 
-#print(x_test.shape)
-#print(y_test.shape)
-
-
 class Network(nn.Module):
     def __init__(self):
         super().__init__()
@@ -89,7 +83,6 @@ class Network(nn.Module):
 
 model = Network()
 
-
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.003)
 
@@ -100,6 +93,9 @@ batch_size = 32
 trainloader = len(X_train)/batch_size
 testloader = len(X_test)/batch_size
 
+model.train()
+
+w_glob = model.state_dict()
 
 for e in range(epochs):
     
