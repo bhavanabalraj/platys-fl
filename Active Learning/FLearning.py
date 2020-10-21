@@ -18,7 +18,7 @@ from torch import optim
 import copy
 
 xHarData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/train/X_train.txt', header=None)
-yHarData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt', header=None)
+xHarData['labels'] = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/train/y_train.txt', header=None)
 
 def transform(x):
  
@@ -37,13 +37,13 @@ newTrainData =[]
 for i in range(len(xHarData[0])):
     newTrainData.append(transform(xHarData[0][i]))
 
-
 X_train = torch.tensor(newTrainData)
 
-y_train = torch.tensor(yHarData[0].values).flatten()
+#y_train = torch.tensor(yHarData[0].values).flatten()
+y_train = torch.tensor(xHarData['labels'].values).flatten()
 
 X_testData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/test/X_test.txt', header=None)
-y_testData = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt', header=None)
+X_testData['labels'] = pd.read_csv('UCI HAR Dataset/UCI HAR Dataset/test/y_test.txt', header=None)
 
 newTestData = []
 
@@ -51,7 +51,7 @@ for i in range(len(X_testData[0])):
     newTestData.append((transform(X_testData[0][i])))
 
 X_test = torch.tensor(newTestData)
-y_test = torch.tensor(y_testData[0].values).flatten()
+y_test = torch.tensor(X_testData['labels'].values).flatten()
 
 class Network(nn.Module):
     def __init__(self):
@@ -74,8 +74,12 @@ class Network(nn.Module):
         
         return x
 
-
 model = Network()
+
+dict_of_regions = {k: v for k, v in xHarData.groupby('labels')}
+print(dict_of_regions)
+    
+
 w_glob = model.state_dict()
 
 X_split_dataset = torch.split(X_train,1000)
@@ -188,4 +192,5 @@ for idx in idxs_users:
    w = train(net, X_split_dataset[idx], y_split_dataset[idx])
    plt.show()
    w_locals.append(copy.deepcopy(w))
+   
 
