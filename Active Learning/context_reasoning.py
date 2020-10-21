@@ -29,8 +29,6 @@ def readLabels(filename, setHeader):
 
 def preprocessData(data):
     
-    #print(data)
-    
     transformedData =[]
 
     for i in range(len(data[0])):
@@ -200,8 +198,8 @@ def fedTrain(model, X_train, y_train, X_test, y_test, numOfClients, iters):
            w_locals.append(copy.deepcopy(w))
 
            testLosses[i].append(testLoss[-1])
-           
-           plotLoss(trainLoss, testLoss, idx)
+
+           #plotLoss(trainLoss, testLoss, idx)
            
            #loss_locals.append(copy.deepcopy(loss))
            # update global weights
@@ -218,9 +216,7 @@ def splitRandomAndTrain(model, X_train, y_train, X_test, y_test, iters):
     
     X_split_dataset = torch.split(X_train, 1000)
     y_split_dataset = torch.split(y_train, 1000)
-    
-    #print(X_split_dataset)
-    
+
     model = fedTrain(model, X_split_dataset, y_split_dataset, X_test, y_test, \
                      len(X_split_dataset), iters)
     
@@ -231,7 +227,6 @@ def splitByLabels(model, trainData, X_train, y_train, X_test, y_test, iters):
    
     X_split_dataset = []
     y_split_dataset = []
-    
     
     groups = trainData.groupby('labels').apply(lambda x: x.index.tolist())
     
@@ -267,21 +262,9 @@ def main():
     
     #splitRandomAndTrain(model, X_train, y_train, X_test, y_test, 6)
     splitByLabels(model, trainData, X_train, y_train, X_test, y_test, 6)
-    
-    
 
 if __name__ == "__main__":
     main()
 
-#dict_of_regions = {k: v for k, v in xHarData.groupby('labels')}
-#print(dict_of_regions)
 
-'''
-for idx in idxs_users:
-   print("USER:", idx)
-   net=copy.deepcopy(model)
-   w = train(net, X_split_dataset[idx], y_split_dataset[idx])
-   plt.show()
-   w_locals.append(copy.deepcopy(w))
-''' 
 
